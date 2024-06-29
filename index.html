@@ -8,8 +8,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/letter-d.png" rel="icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -73,7 +72,7 @@
             <a id="forgot-link" href="#">Forgot password?</a>
             <div class="registrationSubmit">
               <button name="submit" id="submit" type="submit" class="signIN">Sign in</button>
-              <button name="submit" id="signUp">Create Account</button>
+              <button name="submit" id="signUp">Sign Up</button>
             </div>
           </form>
         </div>
@@ -90,6 +89,8 @@
             <input id="username" name="username" type="textbox" placeholder="Username" required>
             <input id="email" name="email" type="email" placeholder="Email address" required>
             <input id="password" name="password" type="password" placeholder="Password" required>
+            <input id="password" name="password" type="password" placeholder="Confirm Password" required>
+
             <div class="registrationSubmit">
               <button name="submit" id="signupAccount" type="submit">Register</button>
               <button name="submit" id="signIn" class="signIN">Sign in</button>
@@ -130,7 +131,7 @@
             <h1>Better Solutions For Your Business</h1>
             <p>We are team of talented designers making websites with Bootstrap</p>
             <div class="d-flex">
-              <a href="#about" class="btn-get-started">Get Started</a>
+              <a href="#why-us" class="btn-get-started">Get Started</a>
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
@@ -280,7 +281,7 @@
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item position-relative">
-              <div class="icon"><img src="./assets/img/target.png" width="90"></div>
+              <div class="icon"><img src="./assets/img/target.png" class="UpDownAnimation"  width="90"></div>
               <h4><p class="stretched-link">Know your dream</p></h4>
               <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
             </div>
@@ -288,7 +289,7 @@
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item position-relative">
-              <div class="icon"><img src="./assets/img/training.png" width="90"></div>
+              <div class="icon"><img src="./assets/img/training.png" class="UpDownAnimation" width="90"></div>
               <h4><p class="stretched-link">We giude you</p></h4>
               <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
             </div>
@@ -296,7 +297,7 @@
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
             <div class="service-item position-relative">
-              <div class="icon"><img src="./assets/img/studying.png" width="90"></div>
+              <div class="icon"><img src="./assets/img/studying.png" class="UpDownAnimation" width="90"></div>
               <h4><p class="stretched-link">Do home work</p></h4>
               <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
             </div>
@@ -304,7 +305,7 @@
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
             <div class="service-item position-relative">
-              <div class="icon"><img src="./assets/img/goal.png" width="90"></div>
+              <div class="icon"><img src="./assets/img/goal.png" class="UpDownAnimation" width="90"></div>
               <h4><p class="stretched-link">Make it happen</p></h4>
               <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
             </div>
@@ -489,7 +490,7 @@
 
             <div class="info-wrap animationBackground2">
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                <img src="assets/img/location-mark.png" width="50">
+                <img src="assets/img/location-mark.png" class="UpDownAnimation" width="50">
                 <div>
                   <h3>Address</h3>
                   <p>A108 Adam Street, New York, NY 535022</p>
@@ -497,7 +498,7 @@
               </div><!-- End Info Item -->
 
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                <img src="assets/img/emergency.png" width="50">
+                <img src="assets/img/emergency.png" class="UpDownAnimation" width="50">
                 <div>
                   <h3>Call Us</h3>
                   <p>+1 5589 55488 55</p>
@@ -505,7 +506,7 @@
               </div><!-- End Info Item -->
 
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                <img src="assets/img/send-mail.png" width="50">
+                <img src="assets/img/send-mail.png" class="UpDownAnimation" width="50">
                 <div>
                   <h3>Email Us</h3>
                   <p>info@example.com</p>
@@ -598,21 +599,35 @@
     </svg>
     <div class="footer-top animationBackground">
       <div class="row gy-4">
-        <div class="col-lg-6 col-md-6 footer-about">
+        <div class="col-lg-12 col-md-12 footer-about">
           <a href="index.html" class="d-flex align-items-center">
             <span class="sitename">DREAMXCAREERs</span>
           </a>
-          <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          <div>
+            <br><h2>About Us</h2>
+            <p>Welcome to DreamXCareer, where your dreams meet their destined careers. At DreamXCareer, we are passionate about guiding students to transform their aspirations into tangible career paths. Understanding the complexities of the journey from dreams to reality, we provide comprehensive support to make this transition seamless and successful.</p>
           </div>
-        </div>
 
-        <div class="col-lg-6 col-md-12">
-          <h4>Follow Us</h4>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+          <div>
+            <br><h2>Our Mission</h2>
+            <p>Our mission is to empower students by providing end-to-end counseling and testing services that illuminate their career paths. We aim to help students understand how to achieve their dreams, recognize potential hurdles, and explore the best options tailored to their unique needs and goals.<p>
+          </div>
+
+          <div>
+            <br><h2>What We Offer</h2>
+            <p>End-to-End Counseling Sessions: Our dedicated counselors work closely with students to provide personalized guidance. We delve into each student's goals, strengths, and preferences, ensuring that the advice and support we offer are uniquely tailored to their aspirations.
+            </p>
+            <p>Career Assessment Tests: We offer a variety of assessments designed to identify students' interests, skills, and potential career paths. These tests form the foundation of our personalized guidance, helping us to better understand and support each student.</p>
+            <p>Pathway Planning: With a clear understanding of a student�s ambitions and strengths, we outline the early steps necessary to achieve their career goals. This includes advice on suitable courses, extracurricular activities, internships, and other crucial components.</p>
+            <p>Identifying Hurdles: We recognize that every journey includes challenges. Our team helps students identify potential obstacles and develop strategies to overcome them, ensuring they stay on track towards their goals.</p>
+            <p>Customized Options: Based on each student�s requirements and needs, we provide a range of tailored options. Whether it's choosing the right educational path, exploring alternative career options, or finding additional resources, we ensure students have the information and support they need to make informed decisions.</p>
+          </div>
+
+          <div>
+            <br><h2>Join Us</h2>
+            <p>Start your journey to a successful career with DreamXCareer. Let us help you turn your dreams into reality with expert guidance, personalized support, and a clear roadmap to success. Together, we can navigate the path to your future. <b>For more information or to schedule a session, please contact us at [Your Contact Information]. We look forward to partnering with you on your journey to achieve your career dreams!</b></p>
+          </div>
+
           <div class="social-links d-flex">
             <a href=""><i class="bi bi-twitter-x"></i></a>
             <a href=""><i class="bi bi-facebook"></i></a>
