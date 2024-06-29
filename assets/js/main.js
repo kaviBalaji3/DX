@@ -248,6 +248,14 @@ $(document).ready(function () {
   });
 });
 
+$(document).on('click', '.popup-overlay, .modal-bg', function (e) {
+  if (e.target.className == 'popup-overlay') {
+      $(".popup-overlay").hide();
+  }
+  if (e.target.className.includes('modal-bg')) {
+      $(".modal-bg").hide();
+  }
+})
 // pop up
 
 
