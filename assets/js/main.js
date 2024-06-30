@@ -342,7 +342,6 @@ $(document).on('click', '#verifyOTP', function (event) {
 function formValidation(className) {
   let isVerfified = true;
   $("."+className).each(function (index, element) {
-    console.log($(this).attr("id"))
     if (!$(this).val()) {
       $(this).css("border", "1px solid red");
       isVerfified = false;
