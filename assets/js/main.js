@@ -467,27 +467,27 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 document.getElementById('logoutButton').addEventListener('click', logout);
 
 //contactform
-document.getElementById('contactForm').addEventListener('submit', async (event) => {
-  event.preventDefault();
-  const formData = new FormData(event.target);
-  const data = Object.fromEntries(formData.entries());
+//document.getElementById('contactForm').addEventListener('submit', async (event) => {
+  //event.preventDefault();
+  //const formData = new FormData(event.target);
+  //const data = Object.fromEntries(formData.entries());
 
-  try {
-    const response = await fetch('https://project-1-tuqh.onrender.com/api/contactform', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
+  //try {
+    //const response = await fetch('https://project-1-tuqh.onrender.com/api/contactform', {
+      //method: 'POST',
+      //headers: {
+        //'Content-Type': 'application/json',
+      //},
+      //body: JSON.stringify(data),
+    //});
 
-    if (!response.ok) throw new Error('Failed to submit form');
-    alert('Form submitted successfully');
-  } catch (error) {
-    console.error('Error:', error);
-    alert('Error submitting form');
-  }
-});
+    //if (!response.ok) throw new Error('Failed to submit form');
+    //alert('Form submitted successfully');
+  //} catch (error) {
+    //console.error('Error:', error);
+    //alert('Error submitting form');
+  //}
+//});
 
 //twilio
 async function sendOTP() {
