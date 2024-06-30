@@ -53,18 +53,18 @@
       </nav>
 
       <p class="btn-getstarted" id="signIn" href="">Login</p>
-
+<button id="logoutButton"  class="btn-getstarted" style="display: none;">Logout</button>
     </div>
   </header>
 
   <main class="main">
 
     <!-- SIGN IN Section -->
-    <div class="signinSinUp">
+     <div class="signinSinUp">
       <div class="modal-bg modal-bg-signin" style="display: none;">
         <div id="modal" class="waveBackground">
           <span><img src="./assets/img/user.png" class="loginImage"  width="50"><b>SIGN IN</b></span>
-          <form>
+          <form id="loginForm">
             <input id="username" name="username" type="textbox" placeholder="Username" required>
             <input id="password" name="password" type="password" placeholder="Password" required>
             <a id="forgot-link" href="#">Forgot password?</a>
@@ -83,7 +83,7 @@
       <div class="modal-bg modal-bg-signup" style="display:none;">
         <div id="modal" class="waveBackground">
           <span><img src="./assets/img/user.png" class="loginImage"  width="50"><b>SIGN UP</b></span>
-          <form>
+          <form id="registerForm">
             <input id="username" name="username" type="textbox" placeholder="Username" required>
             <input id="email" name="email" type="email" placeholder="Email address" required>
             <input id="password" name="password" type="password" placeholder="Password" required>
@@ -100,12 +100,14 @@
     <!-- SIGN UP Section -->
 
     <!-- OTP Section -->
-    <div class="signinSinUp">
+     <div class="signinSinUp">
       <div class="modal-bg OTP_popup" style="display: none;">
         <div id="modal" class="waveBackground">
           <span id="OTP_popup"><img src="./assets/img/password.png" class="loginImage"  width="50"><b>Enter the code</b></span>
           <form>
             <div class="d-flex OTP_popup_fileds">
+              <input maxlength="1" class="otpNumber">
+              <input maxlength="1" class="otpNumber">
               <input maxlength="1" class="otpNumber">
               <input maxlength="1" class="otpNumber">
               <input maxlength="1" class="otpNumber">
@@ -186,7 +188,7 @@
           </div>
 
           <div class="col-xl-5 col-lg-6 col-md-6 col-12 d-flex flex-column justify-content-center order-2 order-lg-2">
-            <form method="post" class="counselling-form" data-aos="fade-up" data-aos-delay="200">
+            <form method="post" class="counselling-form" data-aos="fade-up" data-aos-delay="200" id="counsellingForm">
               <div class="row gy-4 counselling-form-fields">
 
                 <div class="text-center d-flex justify-content-center">
@@ -194,65 +196,69 @@
                   <h2 class="cursor">&nbsp;</h2><h2>Together!!</h2>
                 </div>
                 <div class="col-md-8 col-8">
-                  <input type="text" name="name" id="name-field" class="form-control" 
+                  <input type="text" name="studentName" id="name-field" class="form-control" 
                     placeholder="Student Name">
                 </div>
 
                 <div class="col-md-4 col-4">
-                  <input type="text" maxlength="2" class="form-control" name="class" id="class-field" 
+                  <input type="email" class="form-control" name="email" id="email-field" 
                     placeholder="Class">
                 </div>
 
                 <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" id="subject-field" 
+                  <input type="text" class="form-control" name="schoolName" id="subject-field" 
                     placeholder="School Name">
                 </div>
 
                 <div class="col-md-12">
-                  <input class="form-control" name="message" id="message-field" 
+                  <input class="form-control" name="parentName" id="message-field" 
                     placeholder="Parent / Guardian Name">
+                </div>
+                <div class="col-md-12">
+                  <input class="form-control" name="parentOccupation" id="message-field" 
+                    placeholder="Parent / Gardian Occupation">
                 </div>
 
                 <div class="col-md-6 col-6">
-                  <input type="text" maxlength="6" name="Zipcode-field" id="Zipcode-field" class="form-control" 
+                  <input type="text" name="Zipcode-field" id="Zipcode-field" class="form-control" 
                     placeholder="Zipcode">
                 </div>
 
                 <div class="col-md-6 col-6">
-                  <input type="text" name="City-field" id="City-field" class="form-control" 
+                  <input type="text" name="city" id="City-field" class="form-control" 
                     placeholder="City">
                 </div>
 
                 <div class="col-md-9 col-9">
-                  <input type="text" name="number-field" min="0" max="9" maxlength="10" id="number-field" class="form-control" 
+                  <input type="text" name="number-field" min="0" max="9" maxlength="10" id="mobileNumber" class="form-control" 
                     placeholder="Mobile Number">
                 </div>
 
                 <div class="col-md-3 col-3 OTP">
-                  <button class="generateOTP">OTP</button>
+                  <button onclick="sendOTP()" id="sendOTPMessage" class="generateOTP">OTP</button>
                 </div>
 
                 <div class="col-md-4 col-4">
                   <div class="radiobtn">
-                    <input type="radio" id="Online" name="drone" value="Online" checked />
+                    <input type="radio" id="Online" name="session" value="Online" checked />
                     <label for="Online">Online</label>
                 </div>
                 </div>
 
                 <div class="col-md-4 col-4">
                   <div class="radiobtn">
-                    <input type="radio" id="Offline" name="drone" value="Offline" />
+                    <input type="radio" id="Offline" name="session" value="Offline" />
                     <label for="Offline">Offline</label>
                 </div>
                 </div>
 
                 <div class="col-md-4 col-4">
-                  <input type="date" id="date" name="number-field" id="date-field" class="form-control" 
+                  <input type="date" id="date" name="date" id="date-field" class="form-control" 
                     placeholder="Date">
                 </div>
 
                 <div class="col-md-12 text-center">
-                  <button type="submit" class="counsellingsubmitForm">Register</button>
+                  <button type="submit" class="counsellingsubmitForm" id="submitCounsellingForm">Register</button>
                 </div>
 
               </div>
