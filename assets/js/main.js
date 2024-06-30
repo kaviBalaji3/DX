@@ -358,23 +358,7 @@ function formValidation(className) {
   return isVerfified
 }
 
-document.getElementById('number-field').addEventListener('keypress', function (e) {
-  if (e.key < '0' || e.key > '9') {
-      e.preventDefault();
-  }
-});
 
-document.getElementById('Zipcode-field').addEventListener('keypress', function (e) {
-  if (e.key < '0' || e.key > '9') {
-      e.preventDefault();
-  }
-});
-
-document.getElementById('class-field').addEventListener('keypress', function (e) {
-  if (e.key < '0' || e.key > '9') {
-      e.preventDefault();
-  }
-});
 //form validation 
 
 // Event listener for counseling form submission
