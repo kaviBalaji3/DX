@@ -11,8 +11,6 @@
   <link href="assets/img/letter-d.png" rel="icon">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
@@ -156,14 +154,14 @@
 
           <div class="col-lg-12 content" data-aos="fade-up" data-aos-delay="100">
             <ul>
-              <li><span>UExpert Guidance: Our team comprises experienced educators, career counselors, and industry
+              <li><span><b>UExpert Guidance:</b> Our team comprises experienced educators, career counselors, and industry
                   professionals who bring a wealth of knowledge and expertise to our services.</span></li>
-              <li><span>Personalized Approach: We believe in providing personalized support. Our services are designed
+              <li><span><b>Personalized Approach:</b> We believe in providing personalized support. Our services are designed
                   to meet the unique needs of each student, ensuring they receive relevant and effective
                   guidance.</span></li>
-              <li><span> Comprehensive Support: From initial assessments to detailed pathway planning and continuous
+              <li><span><b>Comprehensive Support:</b> From initial assessments to detailed pathway planning and continuous
                   guidance, we offer end-to-end support to help students achieve their career ambitions.</span></li>
-              <li><span>Commitment to Excellence: We are dedicated to maintaining the highest standards of service,
+              <li><span><b>Commitment to Excellence:</b> We are dedicated to maintaining the highest standards of service,
                   continuously updating our methods and resources to provide the best possible support.
                 </span></li>
             </ul>
@@ -201,7 +199,7 @@
                 </div>
 
                 <div class="col-md-4 col-4">
-                  <input type="email" class="form-control" name="email" id="email-field" 
+                  <input type="text" maxlength="2" class="form-control" name="class" id="class-field" 
                     placeholder="Class">
                 </div>
 
@@ -216,7 +214,7 @@
                 </div>
 
                 <div class="col-md-6 col-6">
-                  <input type="text" name="Zipcode-field" id="Zipcode-field" class="form-control" 
+                  <input type="text" maxlength="6" name="Zipcode-field" id="Zipcode-field" class="form-control" 
                     placeholder="Zipcode">
                 </div>
 
@@ -282,7 +280,7 @@
           <div class="col-xl-3 col-md-6 d-flex text-center" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item position-relative">
               <div class="icon"><img src="./assets/img/target.png" class="UpDownAnimation"  width="90"></div>
-              <h4><p class="stretched-link">Know your dream</p></h4>
+              <h4><p class="stretched-link">Define your passion</p></h4>
               <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
             </div>
           </div><!-- End Service Item -->
@@ -290,7 +288,7 @@
           <div class="col-xl-3 col-md-6 d-flex text-center" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item position-relative">
               <div class="icon"><img src="./assets/img/training.png" class="UpDownAnimation" width="90"></div>
-              <h4><p class="stretched-link">We giude you</p></h4>
+              <h4><p class="stretched-link">Your path, Our Expertise</p></h4>
               <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
             </div>
           </div><!-- End Service Item -->
@@ -298,7 +296,7 @@
           <div class="col-xl-3 col-md-6 d-flex text-center" data-aos="fade-up" data-aos-delay="300">
             <div class="service-item position-relative">
               <div class="icon"><img src="./assets/img/studying.png" class="UpDownAnimation" width="90"></div>
-              <h4><p class="stretched-link">Do home work</p></h4>
+              <h4><p class="stretched-link">Make progress from home</p></h4>
               <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
             </div>
           </div><!-- End Service Item -->
@@ -306,7 +304,7 @@
           <div class="col-xl-3 col-md-6 d-flex text-center" data-aos="fade-up" data-aos-delay="400">
             <div class="service-item position-relative">
               <div class="icon"><img src="./assets/img/goal.png" class="UpDownAnimation" width="90"></div>
-              <h4><p class="stretched-link">Make it happen</p></h4>
+              <h4><p class="stretched-link">Claim your triumph</p></h4>
               <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
             </div>
           </div><!-- End Service Item -->
@@ -478,9 +476,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+        <h2 class="m-0">Contact</h2>
+       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -599,10 +596,20 @@
     </svg>
     <div class="footer-top animationBackground">
       <div class="row gy-4">
-        <div class="col-lg-12 col-md-12 footer-about">
-          <a href="index.html" class="d-flex align-items-center">
-            <span class="sitename">DREAMXCAREERs</span>
-          </a>
+
+        <div class="col-lg-6 col-md-6 col-12 footer-about">
+          <div>
+           <br><h2 class="font-weight-bold">What We Offer</h2>
+            <p>End-to-End Counseling Sessions: Our dedicated counselors work closely with students to provide personalized guidance. We delve into each student's goals, strengths, and preferences, ensuring that the advice and support we offer are uniquely tailored to their aspirations.
+            </p>
+            <p>Career Assessment Tests: We offer a variety of assessments designed to identify students' interests, skills, and potential career paths. These tests form the foundation of our personalized guidance, helping us to better understand and support each student.</p>
+            <p>Pathway Planning: With a clear understanding of a student�s ambitions and strengths, we outline the early steps necessary to achieve their career goals. This includes advice on suitable courses, extracurricular activities, internships, and other crucial components.</p>
+            <p>Identifying Hurdles: We recognize that every journey includes challenges. Our team helps students identify potential obstacles and develop strategies to overcome them, ensuring they stay on track towards their goals.</p>
+            <p>Customized Options: Based on each student�s requirements and needs, we provide a range of tailored options. Whether it's choosing the right educational path, exploring alternative career options, or finding additional resources, we ensure students have the information and support they need to make informed decisions.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-12 footer-about">
           <div>
             <br><h2>About Us</h2>
             <p>Welcome to DreamXCareer, where your dreams meet their destined careers. At DreamXCareer, we are passionate about guiding students to transform their aspirations into tangible career paths. Understanding the complexities of the journey from dreams to reality, we provide comprehensive support to make this transition seamless and successful.</p>
@@ -611,16 +618,6 @@
           <div>
             <br><h2>Our Mission</h2>
             <p>Our mission is to empower students by providing end-to-end counseling and testing services that illuminate their career paths. We aim to help students understand how to achieve their dreams, recognize potential hurdles, and explore the best options tailored to their unique needs and goals.<p>
-          </div>
-
-          <div>
-            <br><h2>What We Offer</h2>
-            <p>End-to-End Counseling Sessions: Our dedicated counselors work closely with students to provide personalized guidance. We delve into each student's goals, strengths, and preferences, ensuring that the advice and support we offer are uniquely tailored to their aspirations.
-            </p>
-            <p>Career Assessment Tests: We offer a variety of assessments designed to identify students' interests, skills, and potential career paths. These tests form the foundation of our personalized guidance, helping us to better understand and support each student.</p>
-            <p>Pathway Planning: With a clear understanding of a student�s ambitions and strengths, we outline the early steps necessary to achieve their career goals. This includes advice on suitable courses, extracurricular activities, internships, and other crucial components.</p>
-            <p>Identifying Hurdles: We recognize that every journey includes challenges. Our team helps students identify potential obstacles and develop strategies to overcome them, ensuring they stay on track towards their goals.</p>
-            <p>Customized Options: Based on each student�s requirements and needs, we provide a range of tailored options. Whether it's choosing the right educational path, exploring alternative career options, or finding additional resources, we ensure students have the information and support they need to make informed decisions.</p>
           </div>
 
           <div>

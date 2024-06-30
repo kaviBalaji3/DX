@@ -238,6 +238,7 @@ $(document).on('click', '.generateOTP', function (event) {
   if ($("#number-field").val()) {
     $('#modal').css('display', 'block');
     $('.OTP_popup').fadeIn(800);
+    $("#number-field").css("border", "0px solid red");
   }else{
     $("#number-field").css("border", "1px solid red");
   }
@@ -358,6 +359,18 @@ function formValidation(className) {
 }
 
 document.getElementById('number-field').addEventListener('keypress', function (e) {
+  if (e.key < '0' || e.key > '9') {
+      e.preventDefault();
+  }
+});
+
+document.getElementById('Zipcode-field').addEventListener('keypress', function (e) {
+  if (e.key < '0' || e.key > '9') {
+      e.preventDefault();
+  }
+});
+
+document.getElementById('class-field').addEventListener('keypress', function (e) {
   if (e.key < '0' || e.key > '9') {
       e.preventDefault();
   }

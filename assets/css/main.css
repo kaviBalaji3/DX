@@ -645,7 +645,8 @@ h6 {
 
 .footer-about h2{
   color: #fff;
-  font-size: 18px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .footer-about div{
