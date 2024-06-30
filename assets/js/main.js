@@ -325,10 +325,10 @@ $(document).on('click', '#verifyOTP', function (event) {
   let isValidate = formValidation("otpNumber")
 })
 
-$(document).on('click', '.registrationSubmit .signIN', function (event) {
-  event.preventDefault(); 
-  let isValidate = formValidation("modal-bg-signin input")
-})
+//$(document).on('click', '.registrationSubmit .signIN', function (event) {
+  //event.preventDefault(); 
+  //let isValidate = formValidation("modal-bg-signin input")
+//})
 
 $(document).on('click', '.registrationSubmit #signupAccount', function (event) {
   event.preventDefault(); 
