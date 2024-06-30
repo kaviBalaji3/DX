@@ -46,14 +46,14 @@
         <ul class="">
           <li><a href="#hero" class="active">Home</a></li>
           <!-- <li><a href="#about">About Us</a></li> -->
-          <!-- <li><a href="#services">Counselling Form</a></li> -->
+          <li><a href="#why-us">Counselling Form</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <p class="btn-getstarted" id="signIn" href="">Login</p>
-<button id="logoutButton"  class="btn-getstarted" style="display: none;">Logout</button>
+      <p class="btn-getstarted" id="signIn" style="display: none;">Login</p>
+      <p class="btn-getstarted" id="logoutButton" style="display: none;">Logout</p>
     </div>
   </header>
 
@@ -68,6 +68,7 @@
             <input id="loginEmail" name="username" type="textbox" placeholder="Username" required>
             <input id="loginPassword" name="password" type="password" placeholder="Password" required>
             <a id="forgot-link" href="#">Forgot password?</a>
+            <p id="errorMessage" class="text-danger text-center p-0 m-0" style="display: none;font-size: 15px;">Invalid username or password</p>
             <div class="registrationSubmit">
               <button name="submit" id="submit" type="submit" class="signIN">Sign in</button>
               <button name="submit" id="signUp">Sign Up</button>
@@ -86,12 +87,11 @@
           <form id="registerForm">
             <input id="regUsername" name="username" type="textbox" placeholder="Username" required>
             <input id="regEmail" name="email" type="email" placeholder="Email address" required>
-            <input id="id="regPassword" name="password" type="password" placeholder="Password" required>
+            <input id="regPassword" name="password" type="password" placeholder="Password" required>
             <input id="confirmpassword" name="password" type="password" placeholder="Confirm Password" required>
-
             <div class="registrationSubmit">
-              <button name="submit" id="submit" type="submit">Register</button>
-              <button name="submit" id="signIn" class="signIN">Sign in</button>
+              <button name="submit" id="register" type="submit">Register</button>
+              <button name="submit" id="signIn" class="">Sign in</button>
             </div>
           </form>
         </div>
@@ -106,8 +106,6 @@
           <span id="OTP_popup"><img src="./assets/img/password.png" class="loginImage"  width="50"><b>Enter the code</b></span>
           <form>
             <div class="d-flex OTP_popup_fileds">
-              <input maxlength="1" class="otpNumber">
-              <input maxlength="1" class="otpNumber">
               <input maxlength="1" class="otpNumber">
               <input maxlength="1" class="otpNumber">
               <input maxlength="1" class="otpNumber">
@@ -201,7 +199,7 @@
                 </div>
 
                 <div class="col-md-4 col-4">
-                  <input type="email" class="form-control" name="email" id="email-field" 
+                  <input type="text" class="form-control" name="class" id="class-field" 
                     placeholder="Class">
                 </div>
 
@@ -657,7 +655,7 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  //<script src="assets/vendor/php-email-form/validate.js"></script>
+
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>

@@ -1,11 +1,3 @@
-/**
-* Template Name: Arsha
-* Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-* Updated: Jun 27 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 (function() {
   "use strict";
 
@@ -223,6 +215,7 @@ $(document).on('click', '#signIn', function (event) {
   $('#modal').css('display', 'block');
   $('.modal-bg-signup').hide();
   $('.modal-bg-signin').fadeIn(800);
+  $("#errorMessage").hide()
 });
 
 
@@ -235,16 +228,17 @@ $(document).on('click', '#signUp', function (event) {
 
 $(document).on('click', '.generateOTP', function (event) {
   event.preventDefault();
-  if ($("#number-field").val()) {
-    $('#modal').css('display', 'block');
-    $('.OTP_popup').fadeIn(800);
-    $("#number-field").css("border", "0px solid red");
-  }else{
-    $("#number-field").css("border", "1px solid red");
-  }
+  OTPValidate();
 });
 
 $(document).ready(function () {
+
+  if(localStorage.getItem("username")){
+    $("#logoutButton").show();
+  }else{
+    $("#signIn").show();
+  }
+
   $('#date').val(new Date().toISOString().slice(0, 10));
   $('.otpNumber').keyup(function () {
       if (this.value.length === this.maxLength) {
@@ -317,7 +311,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 $(document).on('click', '.counsellingsubmitForm', function (event) {
   event.preventDefault(); 
-  localStorage.getItem("customer") ? formValidation("counselling-form input") : $("#signIn").trigger("click");
+  let isValidate = false;
+  localStorage.getItem("username") ?  isValidate = formValidation("counselling-form input") : $("#signIn").trigger("click");
+  if(isValidate == true && $("#sendOTPMessage").attr("isVerified") == true){
+
+  }else if(isValidate == true && $("#sendOTPMessage").attr("isVerified") == false){
+    
+  }
 })
 
 $(document).on('click', '#verifyOTP', function (event) {
@@ -325,24 +325,36 @@ $(document).on('click', '#verifyOTP', function (event) {
   let isValidate = formValidation("otpNumber")
 })
 
-//$(document).on('click', '.registrationSubmit .signIN', function (event) {
-  //event.preventDefault(); 
-  //let isValidate = formValidation("modal-bg-signin input")
-//})
-
-$(document).on('click', '.registrationSubmit #signupAccount', function (event) {
+$(document).on('click', '.registrationSubmit .signIN', function (event) {
   event.preventDefault(); 
-  let isValidate = formValidation("modal-bg-signup input")
+  let isValidate = formValidation("modal-bg-signin input");
+  if(isValidate == true){
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    login(email, password);
+  }
 })
 
-$(document).on('click', '#verifyOTP', function (event) {
+$(document).on('click', '.registrationSubmit #register', function (event) {
   event.preventDefault(); 
-  let isValidate = formValidation("otpNumber")
+  let isValidate = formValidation("modal-bg-signup input");
+  if($("#regPassword").val() != $("#confirmpassword").val()){
+    $("#confirmpassword").css("border", "1px solid red");
+  }else{
+    $("#confirmpassword").css("border", "0px solid red");
+  }
+  if(isValidate == true){
+    const username = document.getElementById('regUsername').value;
+    const email = document.getElementById('regEmail').value;
+    const password = document.getElementById('regPassword').value;
+    register(username, email, password);
+  }
 })
 
 function formValidation(className) {
   let isVerfified = true;
   $("."+className).each(function (index, element) {
+    console.log(element)
     if (!$(this).val()) {
       $(this).css("border", "1px solid red");
       isVerfified = false;
@@ -350,14 +362,38 @@ function formValidation(className) {
     else {
       $(this).css("border", "0px solid rgba(185, 182, 211, 0.7");
     }
-
-    if($("#password").val() != $("#confirmpassword").val()){
-      $("#confirmpassword").css("border", "1px solid red");
-    }
   })
   return isVerfified
 }
 
+function OTPValidate (){
+  if ($("#mobileNumber").val()) {
+    $('#modal').css('display', 'block');
+    $('.OTP_popup').fadeIn(800);
+    $("#mobileNumber").css("border", "0px solid red");
+  }else{
+    $("#mobileNumber").css("border", "1px solid red");
+  }
+}
+
+document.getElementById('mobileNumber').addEventListener('keypress', function (e) {
+  if (e.key < '0' || e.key > '9') {
+      e.preventDefault();
+  }
+});
+
+document.getElementById('Zipcode-field').addEventListener('keypress', function (e) {
+  if (e.key < '0' || e.key > '9') {
+      e.preventDefault();
+  }
+});
+
+document.getElementById('class-field').addEventListener('keypress', function (e) {
+  if (e.key < '0' || e.key > '9') {
+      e.preventDefault();
+  }
+});
+//form validation 
 
 //form validation 
 
@@ -381,7 +417,7 @@ document.getElementById('counsellingForm').addEventListener('submit', async (eve
   }
 });
 
- // Function to handle registration form submission
+// Function to handle registration form submission
  const register = async (username, email, password) => {
   try {
       const response = await fetch('https://project-1-tuqh.onrender.com/api/users/register', {
@@ -397,13 +433,12 @@ document.getElementById('counsellingForm').addEventListener('submit', async (eve
       }
 
       const message = await response.text();
-      alert(message); // Alert the success or error message
+      $("#signIn").trigger("click") // Alert the success or error message
   } catch (error) {
       console.error('Registration failed due to username or email already existing:', error.message);
       alert(error.message); // Alert the success or error message
   }
 };
-
 
 // Function to handle login form submission
 const login = async (email, password) => {
@@ -422,18 +457,14 @@ const login = async (email, password) => {
       }
   
       const data = await response.json();
-      alert('Login successful');
-      console.log('Login successful:', data);
-  
-      
-
+      localStorage.setItem("username",data.username);
       // Show logout button and hide login form
-      document.getElementById('loginForm').style.display = 'none';
-      document.getElementById('signIn').style.display = 'none';
-      document.getElementById('logoutButton').style.display = 'block';
+      $("#logoutButton").show();
+      $("#signIn").hide();
+      $(".popup-overlay").hide();
+      $(".modal-bg").hide();
   } catch (error) {
-    console.error('Login failed:', error.message);
-    alert('Login failed: ' + error.message);
+    $("#errorMessage").show()
   }
 };
 
@@ -443,25 +474,8 @@ const logout = () => {
   document.getElementById('loginForm').style.display = 'block';
   document.getElementById('logoutButton').style.display = 'none';
   document.getElementById('signIn').style.display = 'block';
-  alert('Logged out successfully!');
+  localStorage.removeItem("username"); 
 };
-
-// Event listener for registration form submission
-document.getElementById('registerForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  const username = document.getElementById('regUsername').value;
-  const email = document.getElementById('regEmail').value;
-  const password = document.getElementById('regPassword').value;
-  register(username, email, password);
-});
-
-// Event listener for login form submission
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  const email = document.getElementById('loginEmail').value;
-  const password = document.getElementById('loginPassword').value;
-  login(email, password);
-});
 
 // Event listener for logout button
 document.getElementById('logoutButton').addEventListener('click', logout);
@@ -508,10 +522,10 @@ async function sendOTP() {
       if (response.ok) {
           sendOTPMessage.textContent = 'OTP sent successfully.';
       } else {
-          sendOTPMessage.textContent = data.error || 'Failed to send OTP.';
+        OTPValidate();
       }
   } catch (error) {
-      sendOTPMessage.textContent = 'Failed to send OTP.';
+       OTPValidate();
       console.error('Error sending OTP:', error);
   }
 }
@@ -541,11 +555,14 @@ async function verifyOTP(event) {
 
       if (response.ok) {
           verifyOTPMessage.textContent = 'OTP verified successfully.';
+          $("#sendOTPMessage").attr("isVerified",true);
       } else {
           verifyOTPMessage.textContent = data.error || 'Failed to verify OTP.';
+          $("#sendOTPMessage").attr("isVerified",false);
       }
   } catch (error) {
       verifyOTPMessage.textContent = 'Failed to verify OTP.';
       console.error('Error verifying OTP:', error);
+      $("#sendOTPMessage").attr("isVerified",false);
   }
 }
