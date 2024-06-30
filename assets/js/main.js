@@ -376,3 +376,192 @@ document.getElementById('class-field').addEventListener('keypress', function (e)
   }
 });
 //form validation 
+
+// Event listener for counseling form submission
+document.getElementById('counsellingForm').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const formData = new FormData(event?.target);
+  try {
+      const response = await fetch('https://project-1-tuqh.onrender.com/api/counsellingform', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(Object.fromEntries(formData))
+      });
+      if (!response.ok) throw new Error('Failed to submit form');
+      alert('Form submitted successfully');
+  } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Error submitting form');
+  }
+});
+
+ // Function to handle registration form submission
+ const register = async (username, email, password) => {
+  try {
+      const response = await fetch('https://project-1-tuqh.onrender.com/api/users/register', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, email, password }),
+      });
+
+      if (!response.ok) {
+          throw new Error('User already exists. Change email.');
+      }
+
+      const message = await response.text();
+      alert(message); // Alert the success or error message
+  } catch (error) {
+      console.error('Registration failed due to username or email already existing:', error.message);
+      alert(error.message); // Alert the success or error message
+  }
+};
+
+
+// Function to handle login form submission
+const login = async (email, password) => {
+  try {
+      const response = await fetch('https://project-1-tuqh.onrender.com/api/users/login', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.text();
+        throw new Error(` ${errorData}`);
+      }
+  
+      const data = await response.json();
+      alert('Login successful');
+      console.log('Login successful:', data);
+  
+      
+
+      // Show logout button and hide login form
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('signIn').style.display = 'none';
+      document.getElementById('logoutButton').style.display = 'block';
+  } catch (error) {
+    console.error('Login failed:', error.message);
+    alert('Login failed: ' + error.message);
+  }
+};
+
+// Function to handle logout
+const logout = () => {
+  // Hide logout button and show login form
+  document.getElementById('loginForm').style.display = 'block';
+  document.getElementById('logoutButton').style.display = 'none';
+  document.getElementById('signIn').style.display = 'block';
+  alert('Logged out successfully!');
+};
+
+// Event listener for registration form submission
+document.getElementById('registerForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const username = document.getElementById('regUsername').value;
+  const email = document.getElementById('regEmail').value;
+  const password = document.getElementById('regPassword').value;
+  register(username, email, password);
+});
+
+// Event listener for login form submission
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const email = document.getElementById('loginEmail').value;
+  const password = document.getElementById('loginPassword').value;
+  login(email, password);
+});
+
+// Event listener for logout button
+document.getElementById('logoutButton').addEventListener('click', logout);
+
+//contactform
+document.getElementById('contactForm').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const formData = new FormData(event.target);
+  const data = Object.fromEntries(formData.entries());
+
+  try {
+    const response = await fetch('https://project-1-tuqh.onrender.com/api/contactform', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) throw new Error('Failed to submit form');
+    alert('Form submitted successfully');
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Error submitting form');
+  }
+});
+
+//twilio
+async function sendOTP() {
+  const mobileNumber = document.getElementById('mobileNumber').value;
+  const sendOTPMessage = document.getElementById('sendOTPMessage');
+
+  try {
+      const response = await fetch('https://project-1-tuqh.onrender.com/sendOTP', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ mobileNumber }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+          sendOTPMessage.textContent = 'OTP sent successfully.';
+      } else {
+          sendOTPMessage.textContent = data.error || 'Failed to send OTP.';
+      }
+  } catch (error) {
+      sendOTPMessage.textContent = 'Failed to send OTP.';
+      console.error('Error sending OTP:', error);
+  }
+}
+
+async function verifyOTP(event) {
+  event.preventDefault();
+
+  const otpInputs = document.querySelectorAll('.otpNumber');
+  let otp = '';
+  otpInputs.forEach(input => {
+      otp += input.value;
+  });
+
+  const mobileNumber = document.getElementById('mobileNumber').value;
+  const verifyOTPMessage = document.getElementById('verifyOTPMessage');
+
+  try {
+      const response = await fetch('https://project-1-tuqh.onrender.com/verifyOTP', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ otp, mobileNumber }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+          verifyOTPMessage.textContent = 'OTP verified successfully.';
+      } else {
+          verifyOTPMessage.textContent = data.error || 'Failed to verify OTP.';
+      }
+  } catch (error) {
+      verifyOTPMessage.textContent = 'Failed to verify OTP.';
+      console.error('Error verifying OTP:', error);
+  }
+}
