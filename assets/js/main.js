@@ -235,8 +235,12 @@ $(document).on('click', '#signUp', function (event) {
 
 $(document).on('click', '.generateOTP', function (event) {
   event.preventDefault();
-  $('#modal').css('display', 'block');
-  $('.OTP_popup').fadeIn(800);
+  if ($("#number-field").val()) {
+    $('#modal').css('display', 'block');
+    $('.OTP_popup').fadeIn(800);
+  }else{
+    $("#number-field").css("border", "1px solid red");
+  }
 });
 
 $(document).ready(function () {
@@ -338,12 +342,17 @@ $(document).on('click', '#verifyOTP', function (event) {
 function formValidation(className) {
   let isVerfified = true;
   $("."+className).each(function (index, element) {
+    console.log($(this).attr("id"))
     if (!$(this).val()) {
       $(this).css("border", "1px solid red");
       isVerfified = false;
     }
     else {
       $(this).css("border", "0px solid rgba(185, 182, 211, 0.7");
+    }
+
+    if($("#password").val() != $("#confirmpassword").val()){
+      $("#confirmpassword").css("border", "1px solid red");
     }
   })
   return isVerfified

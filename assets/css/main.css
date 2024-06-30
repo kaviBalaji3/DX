@@ -1131,6 +1131,7 @@ background-attachment: fixed;
   width: 100%;
   border: 0px;
   border-radius: 5px;
+  color: #595c5f;
 }
 
 .why-us .content h3 {
@@ -1902,6 +1903,7 @@ background-attachment: fixed;
 
 /* online offlie */
 #date{
+  color: #595c5f;
   margin-top: 10px;
 
   @media screen and (max-width:500px) {
