@@ -357,4 +357,9 @@ function formValidation(className) {
   return isVerfified
 }
 
+document.getElementById('number-field').addEventListener('keypress', function (e) {
+  if (e.key < '0' || e.key > '9') {
+      e.preventDefault();
+  }
+});
 //form validation 
