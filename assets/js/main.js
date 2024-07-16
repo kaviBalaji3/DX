@@ -589,7 +589,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
     const result = await response.json();
 
     if (response.ok) {
-      contactMessage.textContent = 'Email sent successfully.';
+      contactMessage.textContent = 'Your message has been sent. Thank you!';
     } else {
       contactMessage.textContent = result.error || 'Failed to send email.';
     }
