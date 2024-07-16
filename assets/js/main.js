@@ -566,3 +566,35 @@ async function verifyOTP(event) {
       $("#sendOTPMessage").attr("isVerified",false);
   }
 }
+
+
+//contactform
+document.getElementById('contactForm').addEventListener('submit', async function(event) {
+  event.preventDefault();
+
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+
+  const contactMessage = document.getElementById('contactMessage');
+
+  try {
+    const response = await fetch('https://project-1-tuqh.onrender.com/contactForm', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      contactMessage.textContent = 'Your message has been sent. Thank you!';
+    } else {
+      contactMessage.textContent = result.error || 'Failed to send email.';
+    }
+  } catch (error) {
+    contactMessage.textContent = 'Failed to send email.';
+    console.error('Error:', error);
+  }
+});
